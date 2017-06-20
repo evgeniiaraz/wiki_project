@@ -24,6 +24,8 @@ The corpus is English Wikipedia snapshot of april 2016. It contains 4010649 docu
                                       created in Gensim's make_wikicorpus.py script
 
 ## Transformations
+
+#### TF-IDF
            
   
 
