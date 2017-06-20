@@ -21,7 +21,7 @@ The corpus is English Wikipedia snapshot of april 2016. It contains 4010649 docu
 
   *dictionary* is stored in ``` data/wiki-en_wordids.txt.bz2 ```
   
-                                                                              created in ```Gensim's make_wikicorpus.py``` script
+                                      created in ```Gensim's make_wikicorpus.py``` script
 
 ## Transformations
            
