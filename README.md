@@ -32,6 +32,11 @@ Train TF-IDF model(```data/wiki-en.tfidf_model```) on the Bag-of-words model and
 Transform the corpus into TF-IDF vectors. The transformed corpus is stored in ```data/wiki-en_tfidf.mm.bz2```. 
 
 
+#### LDA
+
+(I have tried to run hierarchical Dirichlt process on the whole corpus not to limit the number of topics, but it would take around a week :()
+
+
 
            
   
