@@ -14,7 +14,7 @@ The corpus is English Wikipedia snapshot of april 2016. It contains 4010649 docu
 
 1) Create bag-of-words model from the whole corpus - lemmatize the words: obtain their stem and mark with their POS tag
   
-  *bag-of-words* model is stored in ```data/wiki-en_bow.mm ```
+  *bag-of-words* model is stored in ```data/wiki-en_bow.mm.bz2 ```
 
 2) When creating a dictionary:
   * discard the words which occurred in more than 10% of the documents(~ corpus related stopwords) and less than 20 documents(too rare for such a large corpus)
@@ -26,6 +26,12 @@ The corpus is English Wikipedia snapshot of april 2016. It contains 4010649 docu
 ## Transformations
 
 #### TF-IDF
+
+Train TF-IDF model(```data/wiki-en.tfidf_model```) on the Bag-of-words model and dictionary created above
+
+Transform the corpus into TF-IDF vectors. The transformed corpus is stored in ```data/wiki-en_tfidf.mm.bz2```. 
+
+
            
   
 
