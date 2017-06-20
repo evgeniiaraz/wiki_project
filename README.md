@@ -34,7 +34,14 @@ Transform the corpus into TF-IDF vectors. The transformed corpus is stored in ``
 
 #### LDA
 
-(I have tried to run hierarchical Dirichlt process on the whole corpus not to limit the number of topics, but it would take around a week :()
+(I have tried to run hierarchical Dirichlet process on the whole corpus not to limit the number of topics, but it would take around a week :()
+
+To find the order of number of topics in the Wikipedia corpus, the hierarchical Dirichlet process was run on the latest Simple Wiki dump(it has around 1/4 of the number of documents in the whole corpus). The overall nummber of topics determined is 147. (The resulting model: ```data/simplewiki.hdp_model```)
+
+The LDA model is trained on 300 topics (also - read up on the Web: for large collections 100-500 should be the right number). (**further experiments can run here to determine the best number of topics**)
+
+
+
 
 
 
