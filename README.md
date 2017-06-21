@@ -46,7 +46,7 @@ The LDA model is trained on 300 topics (also - read up on the Web: for large col
 
 
 #### Side notes:
-1) an experiment: compare the documents retrieved when using LDA/LDA after k-Means(or another clustering algorithm)/Jered
+1) an experiment: compare the documents retrieved when using LDA/LDA after k-Means(or another clustering algorithm)/Jered/just clustering on tf-idf depending on time it takes
 
 
 
