@@ -51,7 +51,7 @@ Then, the wiki corpus was transformed into LDA space stored in ```data/wiki-en_l
 #### Side notes:
 1) an experiment: compare the documents retrieved when using LDA/LDA after k-Means(or another clustering algorithm)/Jered/just clustering on tf-idf depending on time it takes
 
-
+2) to future me for evaluation: TREC corpora with (topics, document, relevance); not the same collection for all topics, but overlapping
 
            
   
