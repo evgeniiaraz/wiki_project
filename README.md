@@ -55,6 +55,8 @@ Then, the wiki corpus was transformed into LDA space stored in ```data/wiki-en_l
 
 3) doc2vec: https://markroxor.github.io/gensim/static/notebooks/doc2vec-wikipedia.html
 
+https://cs.stanford.edu/~quocle/paragraph_vector.pdf
+
            
   
 
