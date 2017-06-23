@@ -53,6 +53,8 @@ Then, the wiki corpus was transformed into LDA space stored in ```data/wiki-en_l
 
 2) to future me for evaluation: TREC corpora with (topics, document, relevance); not the same collection for all topics, but overlapping
 
+3) doc2vec: https://markroxor.github.io/gensim/static/notebooks/doc2vec-wikipedia.html
+
            
   
 
