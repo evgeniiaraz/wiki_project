@@ -57,6 +57,8 @@ Then, the wiki corpus was transformed into LDA space stored in ```data/wiki-en_l
 
 https://cs.stanford.edu/~quocle/paragraph_vector.pdf
 
+
+/export/b08/dmcinerney/ForZhenya
            
   
 
