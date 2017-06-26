@@ -60,7 +60,7 @@ https://cs.stanford.edu/~quocle/paragraph_vector.pdf
 
 /export/b08/dmcinerney/ForZhenya
            
-  
+use DBOW - it is better for computing similarity 
 
 
 
