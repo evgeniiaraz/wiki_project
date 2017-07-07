@@ -62,5 +62,7 @@ https://cs.stanford.edu/~quocle/paragraph_vector.pdf
            
 use DBOW - it is better for computing similarity 
 
+https://arxiv.org/pdf/1607.05368.pdf
+
 
 
