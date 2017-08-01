@@ -6,7 +6,7 @@ Summer 2017 project at CLSP, JHU
 
 Installing gensim package
 Installing numpy package
-
+Installing pickle package
 
 ## Data 
 
@@ -27,9 +27,9 @@ The corpus which was used to test the codes is the SimpleWikipedia dump which ha
 #### Bag of words
 Create bag-of-words model from the whole corpus - lemmatize the words: obtain their stem and mark with their POS tag
   
-  *bag-of-words* model is stored in ```/export/b08/erazumo/library/representations/bow```
-  
-  to load the BOW representation: ```   mm = gensim.corpora.MmCorpus(bz2.BZ2File('/export/b08/erazumo/library/representations/bow/wiki-en_bow.mm.bz2'))   ```, 2.5 GB
+*bag-of-words* model is stored in ```/export/b08/erazumo/library/representations/bow```
+ 
+to load the BOW representation: ```   mm = gensim.corpora.MmCorpus(bz2.BZ2File('/export/b08/erazumo/library/representations/bow/wiki-en_bow.mm.bz2'))   ```, 2.5 GB
   
                                       created in Gensim's make_wikicorpus.py script
 
@@ -58,7 +58,7 @@ to load the LDA representation: ```mm = gensim.corpora.MmCorpus.load('/export/b0
 
 The doc2vec representation is stored in ```/export/b08/erazumo/library/representations/doc2vec```
 
-It is stored as a numpy array, so, it can be loaded as ```mm = numpy.load(/export/b08/erazumo/library/representations/doc2vec/doc2vec_vecs.npy)```
+It is stored as a numpy array, so, it can be loaded as ```mm = numpy.load(/export/b08/erazumo/library/representations/doc2vec/doc2vec_vecs.npy)```, 4.5 GB
 
 It has 300 features analogously to LDA. 
 
@@ -83,8 +83,30 @@ Then, the wiki corpus was transformed into LDA space stored in ```data/wiki-en_l
 #### Dictionary
   * discard the words which occurred in more than 10% of the documents(~ corpus related stopwords) and less than 20 documents(too rare for such a large corpus)
 
+Dictionary gives a word<->id mapping. For exampe, if the bag of words vector states the word number 3000 occurs 5 times in a document, this dictionary will tell you what the word 3000 is.  
 
-  *dictionary* is stored in ``` data/wiki-en_wordids.txt.bz2 ```
+Dictionary is stored in ``` /export/b08/erazumo/library/indices/wiki-en_wordids.txt.bz2 ```
+
+to load the dictionary: ```dict = gensim.corpora.dictionary.Dictionary.load_from_text('/export/b08/erazumo/library/indices/wiki-en_wordids.txt.bz2')```
+ 
+#### Title to id 
+
+Title-to-id dictionary gives the mapping between a title of an article and its id. If the transformations are turned into numpy array and you take raw 3000, it will be the transformation for article with id 3000. 
+
+Mapping is stored in ``` /export/b08/erazumo/library/indices/titles_to_id.pickle ```
+
+to load it:  ```dict = pickle.load(open('/export/b08/erazumo/library/indices/titles_to_id.pickle'))```
+
+#### Id to title
+Reverse mapping.
+
+Stored in ```/export/b08/erazumo/library/indices/ids_to_titles.cpickle```
+
+to load it: ```dict = pickle.load(open('/export/b08/erazumo/library/indices/ids_to_titles.cpickle'))```
+
+
+
+
 
 #### Side notes:
 1) an experiment: compare the documents retrieved when using LDA/LDA after k-Means(or another clustering algorithm)/Jered/just clustering on tf-idf depending on time it takes
