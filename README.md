@@ -113,6 +113,9 @@ to load it: ```dict = pickle.load(open('/export/b08/erazumo/library/indices/ids_
 
 ### Clustering
 
+*/export/b08/erazumo/library/clustering/clustering_minibk.py*
+
+
 #### Testing
 
 */export/b08/erazumo/library/clustering/testing/checking_categories.py*
