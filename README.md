@@ -116,22 +116,16 @@ to load it: ```dict = pickle.load(open('/export/b08/erazumo/library/indices/ids_
 Input: 
 
 numpy array with vectors of articles;
-
 number of clusters to cluster in. 
 
 Output:
-
 two files: 
-
 numpy array 'labels_*batch size*_mni_*maximum no improvement parameter*.npy' with a label for each article (kmeans.labels_)
-
 numpy array 'centroids_*batch size*_mni_*maximum no improvement parameter*.npy' with coordinates of the centroids for the n clusters
 
 it also prints the total inertia 
 
-
 Script which flatly clusters the vectors for articles in *n* clusters. 
-
 It is completed using minibatch k-means with the settings that make the clustering run the fastest(***change those in the script itself***)
 
 #### Testing
