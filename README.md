@@ -5,7 +5,9 @@ Summer 2017 project at CLSP, JHU
 ## Prerequisites
 
 Installing gensim package
+
 Installing numpy package
+
 Installing pickle package
 
 ## Data 
