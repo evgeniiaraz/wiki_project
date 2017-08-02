@@ -64,7 +64,7 @@ It is stored as a numpy array, so, it can be loaded as ```mm = numpy.load(/expor
 
 It has 300 features analogously to LDA. 
 
-**NB:** the representations stored as a dense MmCorpus can be turned into numpy array
+**NB:** the representations stored as a dense MmCorpus can be turned into numpy array using ```gensim.matutils.corpus2dense(corpus, num_terms = number_of_features)```. You can also provide length of corpus to the ```num_docs``` parameter for better memory efficiency. 
 
 
 (((((I have tried to run hierarchical Dirichlet process on the whole corpus not to limit the number of topics, but it would take around a week :()
@@ -105,6 +105,45 @@ Reverse mapping.
 Stored in ```/export/b08/erazumo/library/indices/ids_to_titles.cpickle```
 
 to load it: ```dict = pickle.load(open('/export/b08/erazumo/library/indices/ids_to_titles.cpickle'))```
+
+
+## Scripts
+
+
+
+### Clustering
+
+#### Testing
+
+*/export/b08/erazumo/library/clustering/testing/checking_categories.py*
+
+Inputs:
+
+label assigned to each document in a ```numpy``` array
+
+csv table with information on which document goes in which category formatted as:chac
+
+it is a csv file containing clusterid, list of articles where each article is a tuple consisting of (article title, vector) so row[2] will get you the list for each cluster and than list[index][0] will get you the title at index 0
+
+[optional: the title_to_id index as a pickled dictionary; default: the index in ```/export/b08/erazumo/library/indices/titles_to_id.pickle```]
+
+Output:
+
+"clustering.txt" file where under name of each categories the labels of the clusters, they are assigned to, are stored.
+
+
+The aim: 
+to see the composition of categories labelled by humans in Wikipedia in terms of unsupervised clusters created. 
+
+ideally, we want the following kind of mapping: category "Philosophy": 1,1,1,1,1,1,1, so that all the articles assigned to one cluster fall into one category and vice versa - that articles from cluster 1 do not appear in any other category.
+
+
+(For my task: that one to one mapping did not happen, but the misclassification made sense. The summary of the categories and misclassifications(~qualitative evaluation) is in ```/export/b08/erazumo/library/clustering/testing/category_summary.txt```;
+output of the actual cheching_categories.py code is in the same folder in  ```clustering.txt``` file)
+
+
+
+
 
 
 
