@@ -156,7 +156,7 @@ It does not take the input as arguments, you would need to put them in the scrip
 
 
 
-#### Testing
+#### Testing and evaluation
 
 */export/b08/erazumo/library/clustering/testing/checking_categories.py*
 
@@ -200,6 +200,14 @@ Text files with titles of articles assigned to each cluster.
 I used the output of this script to understand what is the content of each cluster (and if it made sense) 
 (my qualitative judgement is given in ```/export/b08/erazumo/library/clustering/testing/category_summary.txt```)
 
+*/export/b08/erazumo/library/scripts/clustering/testing/distance_centroids.py*
+Input:
+numpy array with coordinates of centroids('kmeans.centroids_' saved to a numpy array)
+
+Output:
+'distances.npy' which stores pairwise distance between all centroids
+
+This script is for quantitatively evaluating how good the flat clustering is, seeing, how widespread/close the centroids are. 
 
 
 
