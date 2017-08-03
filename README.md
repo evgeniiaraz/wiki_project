@@ -133,13 +133,13 @@ to load it: ```dict = pickle.load(open('/export/b08/erazumo/library/indices/ids_
 Input:
 Wikipedia dump 
 
-***Output prefix***
+[Output prefix]
 
 Ouput:
 
-***Output prefix***_bow.mm
+[Output prefix]_bow.mm
 
-***Output prefix***_wordids.txt.bz2
+[Output prefix]_wordids.txt.bz2
 
 
 Example use: ```python make_bow.py ~/data/results/enwiki-latest-pages-articles.xml.bz2 ~/gensim/results/wiki_en```
@@ -158,11 +158,11 @@ Bag-of-Word representation
 
 Word<->id mapping
 
-***Output prefix***
+[Output prefix]
 
 Output:
 
-***Output prefix***.tfidf_model
+[Output prefix].tfidf_model
 
 Create tfidf model based on Bag-of-Words corpus.  The input is a
 Bow representation saved as MmCorpus.
@@ -248,7 +248,29 @@ Example:
 Example:
 ```python make_lda_pip.py temp/pfff_tfidf.mm temp/pfff_wordids.txt.bz2 temp/ppppp 20``` (output: ```temp/ppppp.lda_model```)
 
+#### LDA corpus
 
+*/export/b08/erazumo/library/preprocessing/make_lda_corpus.py*
+
+Input: 
+
+Tf-IDF vectors in MmCorpus
+[output prefix]
+LDA model
+number of topics in the model
+
+Output: 
+LDA transformed corpus as MmCorpus and numpy array. 
+
+
+The input can be:
+1) three arguments: tfidf vectors in MmCorpus in path/prefix_tfidf.mm, LDA model(saved from *make_lda_pip.py* script - ?) and number of topics.
+The output will be saved to path/prefix_lda.mm and and path/prefix_lda.mm.index.npy
+
+2) four arguments: tfidf vectors in MmCorpus in path/prefix_tfidf.mm, LDA model(saved from *make_lda_pip.py* script - ?), [output prefix] and number of topics.
+The output will be saved in [output prefix]_lda.mm and [output prefix]_lda.mm.index.npy
+
+The script converts the TF-IDF vectors to LDA vectors(which reduces dimensionality as well). 
 
 
 The output Matrix Market files can then be compressed (e.g., by bzip2) to save
