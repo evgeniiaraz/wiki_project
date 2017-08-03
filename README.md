@@ -196,7 +196,6 @@ Example:
 Input:
 
 Bag-of-Words MmCorpus representation
-
 TfIDF model 
 
 Output:
@@ -218,6 +217,23 @@ Example:
 1) ```python make_tfidf_corpus.py temp/pfff_bow.mm temp/pfff.tfidf_model```
 2) ```python make_tfidf_corpus.py temp/pfff_bow.mm temp/pfff.tfidf_model temp/output```
 
+
+#### LDA model
+
+*/export/b08/erazumo/library/preprocessing/make_lda_pip.py*
+
+Input:
+
+TF-IDF vectors[can be bz2 compressed]
+[optional: word<->id mapping]
+[optional: output prefix]
+number of topics
+
+Output: 
+LDA model
+
+
+The script trains an LDA model from TF-IDF vectors. 
 
 
 
