@@ -277,6 +277,13 @@ The output Matrix Market files can then be compressed (e.g., by bzip2) to save
 disk space; gensim's corpus iterators can work with compressed input, too.
 
 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!#### Doc2Vec model
+
+*/export/b08/erazumo/library/scripts/preprocessing/make_doc2vec.py*
+
+
+
+
 ### Clustering
 
 #### Flat
