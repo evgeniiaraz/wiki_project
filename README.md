@@ -173,8 +173,15 @@ it is a csv file containing clusterid, list of articles where each article is a 
 
 Output:
 
-"clustering.txt" file where under name of each categories the labels of the clusters, they are assigned to, are stored.
+"clustering.txt" file which looks like:
+Category Philosophy
+1
+1
+3
+5
+...
 
+where 1,1,3,5,... are clusters to which the articles in Philosophy category are assigned. 
 
 The aim: 
 to see the composition of categories labelled by humans in Wikipedia in terms of unsupervised clusters created. 
