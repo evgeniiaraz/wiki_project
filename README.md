@@ -126,15 +126,21 @@ to load it: ```dict = pickle.load(open('/export/b08/erazumo/library/indices/ids_
 
 ### Creating the Wikipedia representations
 
+#### Bag of Words
+
 */export/b08/erazumo/library/preprocessing/make_bow.py*
 
 Input:
 Wikipedia dump 
+
 ***Output prefix***
 
 Ouput:
+
 ***Output prefix***_bow.mm
+
 ***Output prefix***_wordids.txt.bz2
+
 
 Example use: ```python make_bow.py ~/data/results/enwiki-latest-pages-articles.xml.bz2 ~/gensim/results/wiki_en```
 
@@ -142,8 +148,82 @@ The script creates MmCorpus with Bag-of-Words representation of Wikipedia corpus
 The wordids file is the dictionary mapping word<->id. 
 The words are filtered - the too frequent ones(in more than 0.1 of all documents) and too rare ones(occurs in more than 20 documents). 
 
-*/export/b08/erazumo/library/preprocessing/make_bow.py*
+#### Tf-IDF model
 
+*/export/b08/erazumo/library/preprocessing/make_tfidf_model.py*
+
+Input:
+
+Bag-of-Word representation 
+
+Word<->id mapping
+
+***Output prefix***
+
+Output:
+
+***Output prefix***.tfidf_model
+
+Create tfidf model based on Bag-of-Words corpus.  The input is a
+Bow representation saved as MmCorpus.
+
+The input can be:
+
+1) one argument: the BOW corpus saved as 'path_to_repository'/prefix_bow.mm; if given one argument,
+the code will look for dictionary in 'path_to_repository'/prefix_wordids.txt.bz2 and will save the output model in
+'path_to_repository'/prefix.tfidf_model
+
+2) two arguments: the BOW corpus and the output path;
+the BOW corpus should be saved as 'saved as 'path_to_repository'/prefix_bow.mm;
+the code will look for dictionary in 'path_to_repository'/prefix_wordids.txt.bz2 and
+will save the output model in 'output path'.tfidf_model
+
+3) three arguments: the BOW corpus, the dictionary and the output path.
+
+
+
+Example:
+1) ```python make_tfidf_model.py temp/pfff_bow.py```
+2) ```python make_tfidf_model.py temp/pfff_bow.py temp/ppppp```
+3) ```python make_tfidf_model.py temp/pfff_bow.py temp/pfff_wordids.txt.bz2 temp/ppppp```
+
+
+
+#### TfIDF corpus
+
+*/export/b08/erazumo/library/preprocessing/make_tfidf_corpus.py*
+
+Input:
+
+Bag-of-Words MmCorpus representation
+
+TfIDF model 
+
+Output:
+
+TfIDF representation
+
+Convert bag-of-words to TF-IDF vectors. 
+
+The input can be: 
+
+1) two arguments: the BOW corpus saved as 'path_to_repository'/prefix_bow.mm and TF-IDF model. 
+The output MmCorpus will be saved to 'path_to_repository'/prefix_tfidf.mm
+
+2) three arguments: the BOW corpus saved as 'path_to_repository'/prefix_bow.mm, TF-IDF model and output prefix. 
+The output MmCorpus will be saved to output prefix_tfidf.mm
+
+Example:
+
+1) ```python make_tfidf_corpus.py temp/pfff_bow.mm temp/pfff.tfidf_model```
+2) ```python make_tfidf_corpus.py temp/pfff_bow.mm temp/pfff.tfidf_model temp/output```
+
+
+
+
+
+The output Matrix Market files can then be compressed (e.g., by bzip2) to save
+disk space; gensim's corpus iterators can work with compressed input, too.
 
 
 ### Clustering
