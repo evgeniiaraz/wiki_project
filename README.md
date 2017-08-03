@@ -121,6 +121,8 @@ to load it: ```dict = pickle.load(open('/export/b08/erazumo/library/indices/ids_
 
 ### Clustering
 
+#### Flat
+
 */export/b08/erazumo/library/clustering/clustering_minibk.py*
 
 Input: 
@@ -138,6 +140,8 @@ it also prints the total inertia
 Script which flatly clusters the vectors for articles in *n* clusters. 
 It is completed using minibatch k-means with the settings that make the clustering run the fastest(***change those in the script itself***)
 
+#### Hierarchical
+
 */export/b08/erazumo/library/clustering/hierarchical_kmeans.py*
 
 Input:
@@ -154,7 +158,7 @@ The script implements the hierarchical MiniBatch K-Means, top-down clustering. I
 It uses the same batch settings as the *clustering_minibk.py* flat clustering and recursively divides all the clusters is two. 
 It does not take the input as arguments, you would need to put them in the script, but I can modify the script so that it does take them. If you need it modified, let me know. 
 
-
+*Note:* I have tried bottom-up hierarchical clustering but it would take a month to perform, so I chose top-down. 
 
 #### Testing and evaluation
 
@@ -217,7 +221,30 @@ Output:
 This script is for quantitatively evaluating how good the flat clustering is, seeing, how widespread/close the centroids are. 
 
 
+### Keywords
 
+#### TextRank algorithm
+*/export/b08/erazumo/library/scripts/keywords/keywords_dict.py*
+
+Input: 
+Wikipedia dump as an xml archive
+Output:
+'keywords.txt' file which has title of the article and its keywords formatted as:
+title/keyword1
+keyword2
+...
+
+
+#### RAKE algorithm
+*/export/b08/erazumo/library/scripts/keywords/rake_keywords.py*
+
+Input: 
+Wikipedia dump as an xml archive
+Output:
+'rake_keywords.txt' file which has title of the article and its keywords formatted as
+title/keyword1 keyword2 ...
+(before you run the code, get the RAKE folder from here: https://github.com/aneesha/RAKE
+run the code from inside the folder)
 
 
 
