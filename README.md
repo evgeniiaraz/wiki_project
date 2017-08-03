@@ -4,11 +4,21 @@ Summer 2017 project at CLSP, JHU
 
 ## Prerequisites
 
-Installing gensim package
+Install **gensim** package
 
-Installing numpy package
+Install **numpy** package
 
-Installing pickle package
+Install **pickle** package
+
+Install **os** package
+
+Install **sys** package
+
+Install **logging** package
+
+Install **collections** package
+
+Install **multiprocessing** package
 
 ## Data 
 
@@ -128,17 +138,36 @@ it also prints the total inertia
 Script which flatly clusters the vectors for articles in *n* clusters. 
 It is completed using minibatch k-means with the settings that make the clustering run the fastest(***change those in the script itself***)
 
+*/export/b08/erazumo/library/clustering/hierarchical_kmeans.py*
+
+Input:
+vectorisation of Wikipedia dump stored as numpy array
+cluster assignment from flat clustering
+title to id mapping between articles
+id to title mapping between articles
+
+Output:
+'article_clustering.npy' dictionary where each entry is of the form title_of_article:[list of integers] where the integers represent the clusters the article has been clustered into so that it is a hierarchy. 
+
+
+The script implements the hierarchical MiniBatch K-Means, top-down clustering. It is parallelised using multiprocessing.Pool. 
+It uses the same batch settings as the *clustering_minibk.py* flat clustering and recursively divides all the clusters is two. 
+It does not take the input as arguments, you would need to put them in the script, but I can modify the script so that it does take them. If you need it modified, let me know. 
+
+
+
 #### Testing
 
 */export/b08/erazumo/library/clustering/testing/checking_categories.py*
 
 Inputs:
-
 label assigned to each document in a ```numpy``` array
 
-csv table with information on which document goes in which category formatted as:chac
-
+csv table with information on which document goes in which category formatted as:
 it is a csv file containing clusterid, list of articles where each article is a tuple consisting of (article title, vector) so row[2] will get you the list for each cluster and than list[index][0] will get you the title at index 0
+                                                                              (from message from Jered, 12 July)
+(a sample csv file can be found in '/export/b08/dmcinerney/ForZhenya/dataset.csv')
+
 
 [optional: the title_to_id index as a pickled dictionary; default: the index in ```/export/b08/erazumo/library/indices/titles_to_id.pickle```]
 
@@ -157,6 +186,19 @@ ideally, we want the following kind of mapping: category "Philosophy": 1,1,1,1,1
 output of the actual cheching_categories.py code is in the same folder in  ```clustering.txt``` file)
 
 
+
+*/export/b08/erazumo/library/scripts/clustering/testing/clustering_titles.py*
+
+Input:
+numpy array with labels of clusters for each article
+[pickled dictionary with title-to-id mapping; if not given, ```/export/b08/erazumo/library/indices/titles_to_id.pickle``` is used] 
+
+Output:
+Text files with titles of articles assigned to each cluster.
+
+
+I used the output of this script to understand what is the content of each cluster (and if it made sense) 
+(my qualitative judgement is given in ```/export/b08/erazumo/library/clustering/testing/category_summary.txt```)
 
 
 
