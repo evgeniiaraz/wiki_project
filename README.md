@@ -235,6 +235,19 @@ LDA model
 
 The script trains an LDA model from TF-IDF vectors. 
 
+The input can be:
+1) two arguments - tfidf vectors saved in path/prefix_tfidf.mm. 
+The code will look for word<->id mapping in path/prefix_wordids.txt.bz2. The output will be saved in path/prefix.lda_model
+Example:
+```python make_lda_pip.py temp/pfff_tfidf.mm 20``` (output: ```temp/pfff.lda_model```)
+2) three arguments - tfidf vectors(```path/prefix_tfidf.mm```), output prefix(```path1/output```) and number of topics(20). 
+The code will look for word<->id mapping in path/prefix_wordids.txt.bz2.
+Example:
+``` pythpn make_lda_pip.py temp/pfff_tfidf.mm temp/ppppp 20``` (output: ```temp/ppppp.lda_model```)
+3) four arguments - tfidf vectors, path to word<->id mapping, output prefix and number of topics.
+Example:
+```python make_lda_pip.py temp/pfff_tfidf.mm temp/pfff_wordids.txt.bz2 temp/ppppp 20``` (output: ```temp/ppppp.lda_model```)
+
 
 
 
