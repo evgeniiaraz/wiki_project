@@ -120,9 +120,31 @@ to load it: ```dict = pickle.load(open('/export/b08/erazumo/library/indices/ids_
 ## Models
 
 
-
+ 
 
 ## Scripts
+
+### Creating the Wikipedia representations
+
+*/export/b08/erazumo/library/preprocessing/make_bow.py*
+
+Input:
+Wikipedia dump 
+***Output prefix***
+
+Ouput:
+***Output prefix***_bow.mm
+***Output prefix***_wordids.txt.bz2
+
+Example use: ```python make_bow.py ~/data/results/enwiki-latest-pages-articles.xml.bz2 ~/gensim/results/wiki_en```
+
+The script creates MmCorpus with Bag-of-Words representation of Wikipedia corpus.
+The wordids file is the dictionary mapping word<->id. 
+The words are filtered - the too frequent ones(in more than 0.1 of all documents) and too rare ones(occurs in more than 20 documents). 
+
+*/export/b08/erazumo/library/preprocessing/make_bow.py*
+
+
 
 ### Clustering
 
