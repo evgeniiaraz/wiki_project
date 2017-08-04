@@ -281,7 +281,12 @@ disk space; gensim's corpus iterators can work with compressed input, too.
 
 */export/b08/erazumo/library/scripts/preprocessing/make_doc2vec.py*
 
+Input:
+wikipedia dump(xml.bz2 format)
+[output prefix]
 
+Output:
+[output prefix]*.tfidf_model*
 
 
 ### Clustering
