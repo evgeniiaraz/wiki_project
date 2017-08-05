@@ -288,6 +288,8 @@ output prefix
 Output:
 [output prefix]*.tfidf_model*
 
+The script trains and saves the doc2vec learnt from the wikipedia dump in the input. Also, it saves the vectors for the articles in Wiki dump in a numpy array. 
+
 
 
 
