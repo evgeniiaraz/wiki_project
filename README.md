@@ -283,10 +283,14 @@ disk space; gensim's corpus iterators can work with compressed input, too.
 
 Input:
 wikipedia dump(xml.bz2 format)
-[output prefix]
+output prefix
 
 Output:
 [output prefix]*.tfidf_model*
+
+
+
+
 
 
 ### Clustering
