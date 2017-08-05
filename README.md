@@ -119,6 +119,13 @@ to load it: ```dict = pickle.load(open('/export/b08/erazumo/library/indices/ids_
 
 ## Models
 
+### LDA model
+
+stored in ```/export/b08/erazumo/library/models/lda```
+
+to load the model: 
+(import gensim)
+lda = gensim.models.ldamodel.LdaModel.load(model)
 
  
 
