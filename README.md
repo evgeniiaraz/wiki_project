@@ -125,15 +125,36 @@ stored in ```/export/b08/erazumo/library/models/lda```
 
 to load the model: 
 (import gensim)
-lda = gensim.models.ldamodel.LdaModel.load('/export/b08/erazumo/library/models/lda/wiki-en.lda_model')
+```lda = gensim.models.ldamodel.LdaModel.load('/export/b08/erazumo/library/models/lda/wiki-en.lda_model')```
+You can then infer topic distributions on new, unseen documents, with:
+```lda_vector = lda[unseen_document]```
 
 The folder contains 5 files: 
 
-- wiki-en.lda_model                  
-- wiki-en.lda_model.expElogbeta.npy  
-- wiki-en.lda_model.id2word
-- wiki-en.lda_model.state
-- wiki-en.lda_model.state.sstats.npy
+- wiki-en.lda_model - contains the model itself and loads it; with other files as well.                
+- wiki-en.lda_model.expElogbeta.npy - numpy array with the shape (number of topics, number of distinct words). Each row represents a topic; the numbers represent how representative word at index *n* is for this topic. (it is VERY sparse)
+- wiki-en.lda_model.id2word - mapping between index and word. It gives the mapping between the index *n* and the word itself. 
+- wiki-en.lda_model.state 
+- wiki-en.lda_model.state.sstats.npy - the last two files capture the parameters of LDA model at this state. By storing them separately, the model can be updated after loading by: ```lda.update(corpus2)```
+
+
+### Doc2Vec model
+
+stored in ```/export/b08/erazumo/library/models/lda```
+
+to load the model:
+(import gensim)
+model = gensim.models.doc2vec.Doc2Vec.load('/export/b08/erazumo/library/models/doc2vec/wiki-en_pvdbow.doc2vec_model')
+(you will probably need to do qlogin because the model is memory heavy.)
+
+The model contains 5 files:
+docvecs.txt.doctag_syn0
+docvecs.txt.doctag_syn0_lockf
+wiki-en_pvdbow.doc2vec_model - model itsels which loads. In loading it uses all the other files. 
+wiki-en_pvdbow.doc2vec_model.docvecs.doctag_syn0.npy - document vectors; the same numpy array as stored in: ```representations/doc2vec/doc2vec_vecs.npy```
+wiki-en_pvdbow.doc2vec_model.syn1neg.npy
+wiki-en_pvdbow.doc2vec_model.wv.syn0.npy
+
 
 
 ## Scripts
