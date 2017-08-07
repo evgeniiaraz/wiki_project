@@ -125,9 +125,16 @@ stored in ```/export/b08/erazumo/library/models/lda```
 
 to load the model: 
 (import gensim)
-lda = gensim.models.ldamodel.LdaModel.load(model)
+lda = gensim.models.ldamodel.LdaModel.load('/export/b08/erazumo/library/models/lda/wiki-en.lda_model')
 
- 
+The folder contains 5 files: 
+
+- wiki-en.lda_model                  
+- wiki-en.lda_model.expElogbeta.npy  
+- wiki-en.lda_model.id2word
+- wiki-en.lda_model.state
+- wiki-en.lda_model.state.sstats.npy
+
 
 ## Scripts
 
