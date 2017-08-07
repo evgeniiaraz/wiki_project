@@ -148,12 +148,12 @@ model = gensim.models.doc2vec.Doc2Vec.load('/export/b08/erazumo/library/models/d
 (you will probably need to do qlogin because the model is memory heavy.)
 
 The model contains 5 files:
-docvecs.txt.doctag_syn0
-docvecs.txt.doctag_syn0_lockf
-wiki-en_pvdbow.doc2vec_model - model itsels which loads. In loading it uses all the other files. 
-wiki-en_pvdbow.doc2vec_model.docvecs.doctag_syn0.npy - document vectors; the same numpy array as stored in: ```representations/doc2vec/doc2vec_vecs.npy```
-wiki-en_pvdbow.doc2vec_model.syn1neg.npy
-wiki-en_pvdbow.doc2vec_model.wv.syn0.npy
+ - docvecs.txt.doctag_syn0
+ - docvecs.txt.doctag_syn0_lockf
+ - wiki-en_pvdbow.doc2vec_model - model itsels which loads. In loading it uses all the other files. 
+ - wiki-en_pvdbow.doc2vec_model.docvecs.doctag_syn0.npy - document vectors; the same numpy array as stored in: ```representations/doc2vec/doc2vec_vecs.npy```
+ - wiki-en_pvdbow.doc2vec_model.syn1neg.npy
+ - wiki-en_pvdbow.doc2vec_model.wv.syn0.npy
 
 
 
